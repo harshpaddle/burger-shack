@@ -22,6 +22,6 @@ Using an home-grown ORM, the app has 3 basic CRUD functions...
 
 ### Screenshots
 - Desktop View
-  * ![Full Size](/screenshots/fullsize.png)
+  * ![Full Size](https://github.com/harshpaddle/burger-shack/blob/master/public/assets/images/Screen%20Shot%202019-05-13%20at%2010.35.52%20PM.png)
 
 
