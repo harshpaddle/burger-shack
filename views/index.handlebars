@@ -1,0 +1,88 @@
+<div class="jumbotron jumbotron-fluid container d-flex justify-content-center p-0" style="background-color:white">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrlPd8fZP7q8n8VVH52VsUCtJBYc0JVFBzgplgxsBRgfS2iisO" alt="burger shack" class="m-4">
+  <h2 class="text-center display-4 p-4 m-4" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; text-shadow: 10px 10px 30px yellow;">Make the burger magically appear by typing it in the input bar below</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    
+    {{!-- end left column --}}
+    {{!-- right column to display burgers--}}
+    <div class="col-12">
+      {{!-- make two columns in right column --}}
+      <div class="row">
+        {{!-- inner left column --}}
+        <div class="col-12 col-md-5 bg-warning  pb-4">
+          <h2 class="p-4 text-primary">Burgers That Haven't been devoured(smh)</h2>
+          <ul class="list-group">
+            {{!-- use handlebars to print burgers that aren't devoured --}}
+            {{#each burgerData}}
+              {{!-- this is the same as saying !== --}}
+              {{#unless devoured}}
+                <li class="list-group-item d-flex">
+                  {{name}} 
+                  <span class="ml-auto">
+                    <button 
+                      data-id="{{id}}"
+                      data-devoured="true"
+                      class="btn btn-sm btn-info update-burger"
+                      >
+                      devour!
+                    </button>
+
+                    {{!-- delete burger --}}
+                    <button
+                      data-id="{{id}}"
+                      class="btn btn-sm btn-danger delete-burger"
+                    >
+                      Remove
+                    </button>
+                  </span>
+                </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+        {{!-- end inner left --}}
+        {{!-- column for form --}}
+        <div class="col-12 col-md-3 bg-warning">
+          <form id="burger-form">
+            <h3 class="p-4 text-primary">New Burger Order</h3>
+            <input class="form-control mb-1" id="name-input" placeholder="burger's Name" />
+            <button class="btn btn-success btn-block" type="submit">
+              Add a new Burger to devour bro!
+            </button>
+          </form>
+        </div>
+        {{!-- inner right --}}
+        <div class="col-12 col-md-4 bg-warning">
+          <h2 class="p-4 text-primary">Burgers That are devoured</h2>
+          <ul class="list-group">
+            {{!-- use handlebars to print burgers that aren't devoured --}}
+            {{#each burgerData}}
+            {{!-- this is the same as saying !== --}}
+            {{#if devoured}}
+            <li class="list-group-item d-flex">
+              {{name}}
+              <span class="ml-auto">
+                {{!-- <button data-id="{{id}}" data-devoured="false" class="btn btn-sm btn-info update-burger"> --}}
+                  {{!-- devour! --}}
+                {{!-- </button> --}}
+        
+                {{!-- delete burger --}}
+                <button data-id="{{id}}" class="btn btn-sm btn-danger delete-burger">
+                  delete burger
+                </button>
+              </span>
+            </li>
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+        {{!-- end inner right --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./assets/js/burgers.js"></script>
